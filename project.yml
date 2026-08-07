@@ -1,0 +1,41 @@
+name: NosmaiLiveKitExample
+options:
+  bundleIdPrefix: com.nosmai
+  deploymentTarget:
+    iOS: "15.0"
+  createIntermediateGroups: true
+  # CocoaPods 1.15's Xcodeproj cannot parse the newer project format XcodeGen
+  # emits by default ("Unknown object version (77)"), so pin it to one it knows.
+  objectVersion: 54
+
+targets:
+  NosmaiLiveKitExample:
+    type: application
+    platform: iOS
+    sources:
+      - path: NosmaiLiveKitExample
+        excludes:
+          - Filters/**
+      # Bundled .nosmai effects. Copied as resources rather than compiled, and
+      # flattened into the bundle root so Bundle.main.urls(forResourcesWithExtension:)
+      # finds them — which is what lets the app build its filter list at runtime
+      # instead of hardcoding names.
+      - path: NosmaiLiveKitExample/Filters
+        type: folder
+        buildPhase: resources
+    settings:
+      base:
+        # Nosmai licence keys are bound to a bundle id — set this to the id your
+        # key was issued for, and put the key in ViewController.swift.
+        PRODUCT_BUNDLE_IDENTIFIER: com.your.app
+        # Your Apple Developer team id, or sign manually in Xcode.
+        DEVELOPMENT_TEAM: YOUR_TEAM_ID
+        INFOPLIST_FILE: NosmaiLiveKitExample/Info.plist
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1"
+        # Nosmai is an Objective-C framework with no Swift module map, so it is
+        # imported through a bridging header rather than `import nosmai`.
+        SWIFT_OBJC_BRIDGING_HEADER: NosmaiLiveKitExample/Bridging-Header.h
+        # The SDK ships a device-only arm64 slice — the pod excludes every
+        # simulator architecture — so this only ever builds for a real device.
+        ONLY_ACTIVE_ARCH: YES

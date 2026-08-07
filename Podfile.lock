@@ -1,0 +1,32 @@
+PODS:
+  - LiveKitClient (2.0.18):
+    - LiveKitWebRTC (= 125.6422.11)
+    - Logging
+    - SwiftProtobuf
+  - LiveKitWebRTC (125.6422.11)
+  - Logging (1.4.0)
+  - NosmaiCameraSDK (3.0.0)
+  - SwiftProtobuf (1.38.1)
+
+DEPENDENCIES:
+  - LiveKitClient (~> 2.0)
+  - NosmaiCameraSDK (~> 3.0.0)
+
+SPEC REPOS:
+  trunk:
+    - LiveKitClient
+    - LiveKitWebRTC
+    - Logging
+    - NosmaiCameraSDK
+    - SwiftProtobuf
+
+SPEC CHECKSUMS:
+  LiveKitClient: 051bd7a7562c12df4dc0fca5ff70a414a2c11eaf
+  LiveKitWebRTC: fd39d4e51ea51db3367f98c8c82cbf33e50b88c2
+  Logging: beeb016c9c80cf77042d62e83495816847ef108b
+  NosmaiCameraSDK: 3696f39dbe659a24f4a6ed37a4e4b6aac5ae0def
+  SwiftProtobuf: 409d3aaec90e51b1705b1dd8065b56893450e77c
+
+PODFILE CHECKSUM: 7b90e1dab6dc6ee816c66c6d920e7778477bc583
+
+COCOAPODS: 1.17.0

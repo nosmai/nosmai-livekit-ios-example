@@ -1,0 +1,5 @@
+Drop your .nosmai effect packages in this directory.
+
+The app discovers them at runtime and builds its filter bar from whatever is
+here, so no code change is needed to add one. The directory itself must exist
+for `xcodegen generate` to succeed, which is why this file is tracked.

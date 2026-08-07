@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key><string>en</string>
+	<key>CFBundleExecutable</key><string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key><string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleName</key><string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key><string>APPL</string>
+	<key>CFBundleShortVersionString</key><string>1.0</string>
+	<key>CFBundleVersion</key><string>1</string>
+	<key>LSRequiresIPhoneOS</key><true/>
+	<key>UILaunchScreen</key><dict/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array><string>UIInterfaceOrientationPortrait</string></array>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera access is needed to apply live filters.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone access is needed to publish audio.</string>
+	<!-- The local dev server is plain ws:// on a LAN IP; iOS blocks cleartext
+	     by default. DEV ONLY — an app using wss:// does not need this. -->
+	<!-- iOS 14+ requires explicit consent before an app may talk to devices on
+	     the local network. WebRTC media to a LAN LiveKit server is exactly that,
+	     so without this the signalling connects and then media fails with
+	     TRANSPORT_FAILURE. Only needed for a local dev server. -->
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Connects to a LiveKit server on your local network.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict><key>NSAllowsArbitraryLoads</key><true/></dict>
+</dict>
+</plist>
